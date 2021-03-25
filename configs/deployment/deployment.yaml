@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nj-playground-spring
+spec:
+  selector:
+    matchLabels:
+      app: nj-playground-spring
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nj-playground-spring
+    spec:
+      containers:
+        - name: nj-playground-spring
+          image: njoliveira/nj-playground-spring
+          imagePullPolicy: Always
+          ports:
+            - name: nj-pg-spring
+              containerPort: 8080
+              protocol: TCP

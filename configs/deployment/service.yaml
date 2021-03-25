@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nj-playground-spring-service
+  labels:
+    app: nj-playground-spring
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+  selector:
+    app: nj-playground-spring
