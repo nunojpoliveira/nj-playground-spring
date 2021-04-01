@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  selector:
+    matchLabels:
+      app: nj-playground-db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nj-playground-db
+    spec:
+      containers:
+        - name: nj-playground-db
+          image: postgres:12.6
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: nj-playground-db-config
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgresdb
+      volumes:
+        - name: postgresdb
+          persistentVolumeClaim:
+            claimName: nj-playground-db-pv-claim

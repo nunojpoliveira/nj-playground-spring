@@ -1,0 +1,29 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: nj-playground-db-pv-volume
+  labels:
+    type: local
+    app: nj-playground-db
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/mnt/data"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nj-playground-db-pv-claim
+  labels:
+    app: nj-playground-db
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

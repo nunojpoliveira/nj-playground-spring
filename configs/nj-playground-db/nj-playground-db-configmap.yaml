@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nj-playground-db-config
+  labels:
+    app: nj-playground-db
+data:
+  POSTGRES_DB: nj-playground-db
+  POSTGRES_USER: njoliveira
+  POSTGRES_PASSWORD: dOPGjdy4
