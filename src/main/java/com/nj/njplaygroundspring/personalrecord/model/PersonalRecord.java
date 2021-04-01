@@ -1,11 +1,13 @@
-package com.nj.njplaygroundspring.personalrecord;
+package com.nj.njplaygroundspring.personalrecord.model;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.Map;
 
 @AllArgsConstructor
+@EqualsAndHashCode
 public class PersonalRecord {
 
     @Getter
